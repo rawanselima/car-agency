@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/contct_admin.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Admin - Contact Us Submissions</title>
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <div class="admin-card">
+        <img src="../images/admin.jpg" alt="Admin" />
+        <h2>Abdelkader</h2>
+        <h3>Software Engineer</h3>
+        <div class="social-icons">
+          <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <ul>
+        <li>
+          <a href="../HTML/Admin.html"><i class="fa-solid fa-users"></i> Customers</a>
+        </li>
+        <li>
+          <a href="../HTML/report.html"
+            ><i class="fa-regular fa-rectangle-list"></i> Reports</a
+          >
+        </li>
+        <li>
+          <a href="../HTML/contact_admin.html"
+            ><i class="fas fa-envelope"></i> Messages</a
+          >
+        </li>
+
+        <li>
+          <a href="../HTML/confirm.html"
+            ><i class="fa-regular fa-rectangle-list"></i> Confirmation</a
+          >
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+        </li>
+        <li>
+          <a href="#"
+            ><i class="fa-solid fa-person-walking-arrow-right"></i> Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <section class="admin-table-container">
+      <div class="search-box">
+        <input
+          type="text"
+          placeholder="Search by name or email"
+          id="searchInput"
+        />
+        <button id="searchButton">Search</button>
+      </div>
+
+      <table id="contactTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Subject</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Abdelkader</td>
+            <td>abdelkader@gmail.com</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+            <td>I want to buy a car</td>
+            <td><button class="action-btn">Delete</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Ronaldo</td>
+            <td>ronaldo@gmail.com</td>
+            <td>Curabitur vestibulum viverra augue, euismod euismod urna.</td>
+            <td>I want to sell my car</td>
+            <td><button class="action-btn">Delete</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Mohamed</td>
+            <td>mohamed@gmail.com</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+            <td>I want to buy a car</td>
+            <td><button class="action-btn">Delete</button></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Zizo</td>
+            <td>zizo@gmail.com</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+            <td>I want to buy a car</td>
+            <td><button class="action-btn">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <script>
+      document
+        .getElementById("searchButton")
+        .addEventListener("click", function () {
+          const input = document
+            .getElementById("searchInput")
+            .value.toLowerCase();
+          const rows = document.querySelectorAll("#contactTable tbody tr");
+          let found = false;
+
+          rows.forEach(function (row) {
+            const cells = row.getElementsByTagName("td");
+            const name = cells[1].textContent.toLowerCase();
+            const email = cells[2].textContent.toLowerCase();
+
+            if (name.includes(input) || email.includes(input)) {
+              row.style.display = "";
+              found = true;
+            } else {
+              row.style.display = "none";
+            }
+          });
+
+          const noDataMessage = document.getElementById("noDataMessage");
+          if (found) {
+            noDataMessage.style.display = "none";
+          } else {
+            noDataMessage.style.display = "block";
+          }
+        });
+    </script>
+    <script
+      src="https://kit.fontawesome.com/9b4902719c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/9b4902719c.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
